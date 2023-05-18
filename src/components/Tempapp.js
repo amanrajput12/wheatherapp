@@ -12,17 +12,24 @@ const Tempapp = () => {
       const resJson = await response.json();
       console.log(resJson);
     const tempVal =  resJson.main.temp;
-    const minTempval = resJson.main.tem_min;
-    const maxTemVal = resJson.main.temp_max;
+    const celsius = (tempVal - 273.15).toFixed(2);
+    const minTemp = resJson.main.temp_min;
+    const minTempVal =(minTemp-273.15).toFixed(3)
+    
+    
+
+    const maxTem = resJson.main.temp_max;
+    const maxTemVal = (maxTem-273.15).toFixed(3)
+
     const cityVal =  resJson.name;
     const  weatherDetail = resJson.weather[0].main;
-    const completeData ={minTem:minTempval,temp:tempVal,maxTem:maxTemVal,city:cityVal,weather:weatherDetail}
+    const completeData ={minTem:minTempVal,temp:celsius,maxTem:maxTemVal,city:cityVal,weather:weatherDetail}
         setCity(completeData)
     };
 
     fetchApi();
   });
-
+ 
   return (
     <>
     
@@ -46,14 +53,14 @@ const Tempapp = () => {
               <div className="info">
                 <h2 className="location">
                   
-                  <i className="fa-solid fa-street-view"></i> {city.city}
+                  <i className="fa-solid fa-street-view"></i> {city.city} 
                 </h2>
-                <h2>{city.weather }</h2>
+                <h2>{city.weather}</h2>
                 <h1 className="temp">
-                   {city.temp} 
+                   {city.temp} F
                 </h1>
                 
-                <h3 className="temp_min_max">{`${city.maxTem} min `}</h3>
+                <h3 className="temp_min_max">{`${city.minTem} min `}</h3>
                 <h3>{`${city.maxTem} max`}</h3>
                
               </div>
