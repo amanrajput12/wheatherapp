@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./css/Style.css";
 const Tempapp = () => {
   const [city, setCity] = useState("pune");
-  const [search, setSearch] = useState("london");
+  const [search, setSearch] = useState("pune");
 
   useEffect(() => {
     const fetchApi = async () => {
@@ -10,9 +10,14 @@ const Tempapp = () => {
 
       const response = await fetch(url);
       const resJson = await response.json();
-    //   console.log(resJson);
-    const main = resJson['main'];
-        setCity(main)
+      console.log(resJson);
+    const tempVal =  resJson.main.temp;
+    const minTempval = resJson.main.tem_min;
+    const maxTemVal = resJson.main.temp_max;
+    const cityVal =  resJson.name;
+    const  weatherDetail = resJson.weather[0].main;
+    const completeData ={minTem:minTempval,temp:tempVal,maxTem:maxTemVal,city:cityVal,weather:weatherDetail}
+        setCity(completeData)
     };
 
     fetchApi();
@@ -20,6 +25,7 @@ const Tempapp = () => {
 
   return (
     <>
+    
       <div className="container">
         <div className="box">
           <div className="inputData">
@@ -40,13 +46,16 @@ const Tempapp = () => {
               <div className="info">
                 <h2 className="location">
                   
-                  <i className="fa-solid fa-street-view"></i> {search}
+                  <i className="fa-solid fa-street-view"></i> {city.city}
                 </h2>
+                <h2>{city.weather }</h2>
                 <h1 className="temp">
                    {city.temp} 
                 </h1>
-                <h3 className="temp_min_max">{`${city.temp_min} min `}</h3>
-                <h3>{`${city.temp_max} max`}</h3>
+                
+                <h3 className="temp_min_max">{`${city.maxTem} min `}</h3>
+                <h3>{`${city.maxTem} max`}</h3>
+               
               </div>
             </>
           )}
