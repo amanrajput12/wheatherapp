@@ -11,7 +11,9 @@ padding: 0;
     flex-wrap: wrap;
     height: 100vh;
   
-    background-image: url("E:\fullstack web-dev\react\wheather_app\public\background.jpg");  
+    background-image: url("../../../public/background.jpg");
+     
+
     background-size: 100% 100%; 
     background-repeat: no-repeat; 
     
