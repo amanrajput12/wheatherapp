@@ -1,21 +1,37 @@
-.container{
+*{
+margin: 0;
+padding: 0;
+}
+.container {
+
+ margin: 0;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
-    background-color: #808080;
     height: 100vh;
+  
+    background-image: url("E:\fullstack web-dev\react\wheather_app\public\background.jpg");  
+    background-size: 100% 100%; 
+    background-repeat: no-repeat; 
     
 }
+
 .box{
-    margin-top: 100px;
+    
+  
+  
+  line-height: 80px;
     border-radius: 30px;
-    box-shadow: -20px 20px 50px #888;
+    box-shadow: -20px 10px 50px #888;
      height: 80vh;
      width: 80vh;
      display: flex;
      flex-direction: column;
     align-items: center ;
-    background-color: rgb(77, 51, 156);
+    
+  
+  
   
 }
 .inputField{
@@ -23,11 +39,11 @@
     width: 40vh;
     border-radius: 30px;
     border: none;
-margin-top: 20px;
+
 font-weight: 800;
 font-size: 20px;
 color: #464545;
 }
 .info{
-    color: aqua;
+    color: rgba(55, 4, 221, 0.408);
 }
