@@ -58,7 +58,7 @@ const Tempapp = () => {
                 </h2>
                 <h2>{city.weather}</h2>
                 <h1 className="temp">
-                   {city.temp} F
+                   {city.temp} C
                 </h1>
                 
                 <h3 className="temp_min_max">{`${city.minTem} min `}</h3>
